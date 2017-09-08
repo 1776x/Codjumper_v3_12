@@ -1,0 +1,98 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod3\cod3\bin\StringEd.cfg"
+FILENOTES           ""
+
+//ENGLISH
+REFERENCE           ROACH
+LANG_ENGLISH        "Roach"
+
+REFERENCE           UNKNOWN
+LANG_ENGLISH        "Unknown"
+
+REFERENCE           NOOB
+LANG_ENGLISH        "Noob"
+
+REFERENCE           NOVICE
+LANG_ENGLISH        "Novice"
+
+REFERENCE           AMATEUR
+LANG_ENGLISH        "Amateur"
+
+REFERENCE           LEARNER
+LANG_ENGLISH        "Learner"
+
+REFERENCE           APPRENTICE
+LANG_ENGLISH        "Apprentice"
+
+REFERENCE           RECRUIT
+LANG_ENGLISH        "Recruit"
+
+REFERENCE           REGULAR
+LANG_ENGLISH        "Regular"
+
+REFERENCE           ADEPT
+LANG_ENGLISH        "Adept"
+
+REFERENCE           SKILLED
+LANG_ENGLISH        "Skilled"
+
+REFERENCE           EXPERIENCED
+LANG_ENGLISH        "Experienced"
+
+REFERENCE           TALENTED
+LANG_ENGLISH        "Talented"
+
+REFERENCE           VETERAN
+LANG_ENGLISH        "Veteran"
+
+REFERENCE           EXPERT
+LANG_ENGLISH        "Expert"
+
+REFERENCE           PRO
+LANG_ENGLISH        "Pro Jumper"
+
+REFERENCE           WICKED
+LANG_ENGLISH        "Wicked"
+
+REFERENCE           SICK
+LANG_ENGLISH        "Sick"
+
+REFERENCE           ELITE
+LANG_ENGLISH        "Elite"
+
+REFERENCE           1337
+LANG_ENGLISH        "1337 h4x0r"
+
+REFERENCE           HACKER
+LANG_ENGLISH        "Too Good for Skill"
+
+REFERENCE           DEMIGOD
+LANG_ENGLISH        "CoDJumper Demi-God"
+
+REFERENCE           GOD
+LANG_ENGLISH        "CoDJumper God"
+
+REFERENCE           LANCAST
+LANG_ENGLISH        "As Pro As Lancast"
+
+REFERENCE           VIP
+LANG_ENGLISH        "VIP"
+
+REFERENCE           ADMIN
+LANG_ENGLISH        "Server Admin"
+
+REFERENCE           SOVIET
+LANG_ENGLISH        "Soviet"
+
+ENDMARKER

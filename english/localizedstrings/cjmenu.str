@@ -1,0 +1,50 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod3\cod3\bin\StringEd.cfg"
+FILENOTES           ""
+
+//ENGLISH
+REFERENCE     SAVE
+LANG_ENGLISH		"Primary Save"
+REFERENCE			SAVE2
+LANG_ENGLISH		"Secondy Save"
+REFERENCE			SAVE3
+LANG_ENGLISH		"Tertiary Save"
+REFERENCE     LOAD
+LANG_ENGLISH		"Primary Load"
+REFERENCE			LOAD2
+LANG_ENGLISH		"Secondary Load"
+REFERENCE			LOAD3
+LANG_ENGLISH		"Tertiary Load"
+REFERENCE			SUICIDE
+LANG_ENGLISH		"Suicide"
+REFERENCE			DECALS
+LANG_ENGLISH		"Toggle Decals"
+REFERENCE			FX
+LANG_ENGLISH		"Toggle FX"
+REFERENCE			DRAW
+LANG_ENGLISH		"Toggle Draw Distance"
+REFERENCE			FOG
+LANG_ENGLISH		"Toggle Fog"
+REFERENCE			BRIGHT
+LANG_ENGLISH		"Toggle Fullbight"
+REFERENCE			THIRD
+LANG_ENGLISH		"Toggle 3rd Person"
+REFERENCE			SPEC
+LANG_ENLGISH		"Spectator"
+REFERENCE			PLAYER
+LANG_ENGLISH		"Player"
+REFERENCE			TIME
+LANG_ENGLISG		"Time Spent Alive:"
+
+ENDMARKER

@@ -1,0 +1,208 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_GROUP			"quickcommands"
+
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+#include "ui_mp/popupstyle.inc"
+#include "ui/choices_setup_popmenu.menu"
+
+#undef CHOICE_SIZE_X
+#define CHOICE_SIZE_X			186
+
+#undef CHOICE_POPUP_BACKCOLOR
+#define CHOICE_POPUP_BACKCOLOR  0 0 0 0
+
+#undef CHOICE_POPUP_BORDER_COLOR
+#define CHOICE_POPUP_BORDER_COLOR	0 0 0 0
+
+#define ORIGIN_QUICKMESSAGEWINDOW		0 -36
+
+{
+	menuDef
+	{
+		IMPROVED_POPUP_SETUP_ONOPEN( quickcommands, 6, 4, 292, ;, setDvar cl_bypassMouseInput "1";, 0 )
+		onClose{ setDvar cl_bypassMouseInput "0" }
+
+		//CHOICE_POPMENU_TITLE( "@QUICKMESSAGE_QUICK_MESSAGE" )
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			name			"window"
+			visible			1
+			rect			-4 10 120 120
+			forecolor		1 1 1 0.7
+			background		"cj_frame"
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			decoration
+		}
+		//Follow!
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			8 22 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@CJMESSAGE_1_FOLLOW"
+			visible			1
+			decoration
+		}
+		execKey "1" { scriptMenuResponse "1"; close quickcommands; }
+
+		//Stay Here!
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			8 32 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@CJMESSAGE_2_STAYHERE"
+			visible			1
+			decoration
+		}
+		execKey "2" { scriptMenuResponse "2"; close quickcommands }
+
+		//In Position!
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			8 42 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@CJMESSAGE_3_INPOSITION"
+			visible			1
+			decoration
+		}
+		execKey "3" { scriptMenuResponse "3"; close quickcommands }
+
+		//Help Stack!
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			8 52 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@CJMESSAGE_4_HELPSTACK"
+			visible			1
+			decoration
+		}
+		execKey "4" { scriptMenuResponse "4"; close quickcommands }
+
+		//Yes!
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			8 62 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@CJMESSAGE_5_YES"
+			visible			1
+			decoration
+		}
+		execKey "5" { scriptMenuResponse "5"; close quickcommands }
+
+		//No!
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			8 72 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@CJMESSAGE_6_NO"
+			visible			1
+			decoration
+		}
+		execKey "6" { scriptMenuResponse "6"; close quickcommands }
+
+		//OMW!
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			8 82 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@CJMESSAGE_7_OMW"
+			visible			1
+			decoration
+		}
+		execKey "7" { scriptMenuResponse "7"; close quickcommands }
+
+		//Sorry!
+		itemDef
+		{
+			name			"window"
+			group			ingamebox
+			visible			1
+			rect			8 92 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@CJMESSAGE_8_SORRY"
+			visible			1
+			decoration
+		}
+		execKey "8" { scriptMenuResponse "8"; close quickcommands }
+
+		itemDef
+		{
+			name			"window"
+			visible			1
+			rect			8 112 0 0
+			origin			ORIGIN_QUICKMESSAGEWINDOW
+			forecolor		1 1 1 1
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.5)
+			textaligny		8
+			text			"@QUICKMESSAGE_ESC_EXIT"
+			decoration
+		}
+	}
+}

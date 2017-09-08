@@ -1,0 +1,324 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#include "ui_mp/menustyle.inc"
+#include "ui_mp/choices_setup_teams.menu"
+
+{
+	menuDef
+	{
+		name			"graphics"
+		rect			0 0 640 480
+		fullscreen		0
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		2.0
+		onEsc
+		{
+			play "mouse_click";
+			close self;
+		}
+
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			name			"graphic_bg"
+			rect 			-130 -80 260 180 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			background		"cj_frame"
+			decoration
+		}
+
+		itemDef
+		{
+			name			"cj_close"
+			type       		1
+			text			"@CJ_CLOSE"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			80 76 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "graphics"; }
+		}
+
+		//TITLE
+		itemDef
+		{
+			name			"graphics_tweaks"
+			forecolor		1 1 1 0.8
+			text			"@CJ_TWEAK"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			rect			-105 -60 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -55 98 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -54 98 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		//SUBTITLES
+		itemDef
+		{
+			name			"graphics_decals"
+			forecolor		1 1 1 0.8
+			text			"@CJ_DECALS"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			textaligny		8
+			rect			-105 -40 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			name			"graphics_fullbright"
+			forecolor		1 1 1 0.8
+			text			"@CJ_BRIGHT"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			textaligny		8
+			rect			-105 -20 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			name			"graphics_fx"
+			forecolor		1 1 1 0.8
+			text			"@CJ_FX"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			textaligny		8
+			rect			-105 0 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			name			"graphics_drawdistance"
+			forecolor		1 1 1 0.8
+			text			"@CJ_DRAW"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			textaligny		8
+			rect			-105 20 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			name			"graphics_fog"
+			forecolor		1 1 1 0.8
+			text			"@CJ_FOG"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			textaligny		8
+			rect			-105 40 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			name			"graphics_thirdperson"
+			forecolor		1 1 1 0.8
+			text			"@CJ_THIRD"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			textaligny		8
+			rect			-105 60 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		//Boxes
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			10 -46 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			10 -26 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			10 -6 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			10 14 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			10 34 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			10 54 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+
+		//Buttons
+		itemDef
+		{
+			name			"cj_decals"
+			type       		1
+			exp text	(dvarstring(gdecalstate)+"Toggle");
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			10 -45 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 2)
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptMenuResponse "decals"; }
+		}
+		itemDef
+		{
+			name			"cj_bright"
+			type       		1
+			exp text	(dvarstring(gfullbrightstate)+"Toggle");
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			10 -25 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 2)
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptMenuResponse "bright";}
+		}
+		itemDef
+		{
+			name			"cj_fx"
+			type       		1
+			exp text	(dvarstring(gfxstate)+"Toggle");
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			10 -5 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 2)
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptMenuResponse "fx"; }
+		}
+		itemDef
+		{
+			name			"cj_draw"
+			type       		1
+			exp text	("^8Draw distance is ^2"+dvarstring(gdrawstate)+"^8.");
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			10 15 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 2)
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptMenuResponse "draw";}
+		}
+		itemDef
+		{
+			name			"cj_fog"
+			type       		1
+			exp text	(dvarstring(gfogstate)+"Toggle");
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			10 35 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 2)
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptMenuResponse "fog";}
+		}
+		itemDef
+		{
+			name			"cj_thirdperson"
+			type       		1
+			exp text	(dvarstring(gthirdstate)+"Toggle");
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			10 55 82 14 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 2)
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptMenuResponse "thirdperson";}
+		}
+	}
+}

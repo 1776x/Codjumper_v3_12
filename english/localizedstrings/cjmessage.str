@@ -1,0 +1,41 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod3\cod3\bin\StringEd.cfg"
+FILENOTES           ""
+
+//ENGLISH
+REFERENCE           1_FOLLOW
+LANG_ENGLISH		"1. Follow me"
+REFERENCE           2_STAYHERE
+LANG_ENGLISH		"2. Stay here"
+REFERENCE           3_INPOSITION
+LANG_ENGLISH		"3. In position"
+REFERENCE           4_HELPSTACK
+LANG_ENGLISH		"4. Please help stack"
+REFERENCE           5_YES
+LANG_ENGLISH		"5. Yes!"
+REFERENCE           6_NO
+LANG_ENGLISH		"6. No!"
+REFERENCE           7_OMW
+LANG_ENGLISH		"7. On my way"
+REFERENCE           8_SORRY
+LANG_ENGLISH		"8. Sorry"
+REFERENCE           1_CHAT
+LANG_ENGLISH		"1. Chat"
+REFERENCE           3_CUSTOM
+LANG_ENGLISH		"3. Vote"
+REFERENCE           2_CUSTOM
+LANG_ENGLISH		"2. Graphics"
+REFERENCE           4_CUSTOM
+LANG_ENGLISH		"4. Admin Menu"
+ENDMARKER

@@ -1,0 +1,649 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#include "ui_mp/menustyle.inc"
+#include "ui_mp/choices_setup_teams.menu"
+
+{
+	menuDef
+	{
+		name			"cjvote"
+		rect			0 0 640 480
+		fullscreen		0
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_FILLED
+		//blurWorld		5.0
+		onEsc
+		{
+			play "mouse_click";
+			close self;
+		}
+
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			name			"vote_bg"
+			visible			1
+			rect 			-130 -80 260 160 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			background		"cj_frame"
+			decoration
+		}
+		itemDef
+		{
+			type       		1
+			text			"@CJ_BACK"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-115 56 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvote"; open "quickmessage";}
+		}
+		itemDef
+		{
+			type       		1
+			text			"@CJ_CLOSE"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			80 56 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvote"; }
+		}
+
+		//TITLE
+		itemDef
+		{
+			name			"cj_vote"
+			forecolor		1 1 1 0.8
+			text			"@CJ_VOTE"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			rect			-105 -60 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -55 62 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -54 62 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		//Buttons
+		itemDef
+		{
+			name			"cj_vote_map"
+			type       		1
+			text			"@CJ_VOTE_MAP"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-105 -42 116 12 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			forecolor		1 1 1 0.9
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvote"; open "cjvotemap"; }
+		}
+		itemDef
+		{
+			name			"cj_vote_player_kick"
+			type       		1
+			text			"@CJ_VOTE_PLAYER_KICK"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-105 -28 70 12 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			forecolor		1 1 1 0.9
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvote"; open "cjvoteplayerkick"; }
+		}
+	}
+
+	menuDef
+	{
+		name			"cjvotemap"
+		rect			0 0 640 480
+		fullscreen		0
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_FILLED
+		//blurWorld		5.0
+		onEsc
+		{
+			play "mouse_click";
+			close self;
+		}
+
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			name			"vote_bg"
+			rect 			-130 -80 260 160 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			background		"cj_frame"
+			decoration
+		}
+		itemDef
+		{
+			type       		1
+			text			"@CJ_BACK"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-115 56 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvotemap"; open "cjvote"; }
+		}
+		itemDef
+		{
+
+			type       		1
+			text			"@CJ_CLOSE"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			80 56 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvotemap"; }
+		}
+
+		//TITLE
+		itemDef
+		{
+			name			"cj_votemap"
+			forecolor		1 1 1 0.8
+			text			"@CJ_VOTE_MAP"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			rect			-105 -60 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -55 162 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -54 162 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		//Buttons
+		itemDef
+		{
+			name			"cj_vote_map_extend"
+			type       		1
+			text			"@CJ_VOTE_MAP_EXTEND"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-105 -42 74 12 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			forecolor		1 1 1 0.9
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvotemap"; scriptmenuresponse "extend"; }
+		}
+		itemDef
+		{
+			name			"cj_vote_map_rotate"
+			type       		1
+			text			"@CJ_VOTE_MAP_ROTATE"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-105 -28 70 12 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			forecolor		1 1 1 0.9
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvotemap"; scriptmenuresponse "rotate"; }
+		}
+		itemDef
+		{
+			name			"cj_vote_map_change"
+			type       		1
+			text			"@CJ_VOTE_MAP_CHANGE"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-105 -14 74 12 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		(TEXTSIZE_SMALL / 1.4)
+			forecolor		1 1 1 0.9 //Change to 0.9
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvotemap"; open "cjvotemapchange"; }
+		}
+	}
+
+	menuDef
+	{
+		name			"cjvotemapchange"
+		rect			0 0 640 480
+		fullscreen		0
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_FILLED
+		//blurWorld		5.0
+		onEsc
+		{
+			play "mouse_click";
+			close self;
+		}
+
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			name			"vote_bg"
+			rect 			-130 -80 260 160 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			background		"cj_frame"
+			decoration
+		}
+		itemDef
+		{
+			type       		1
+			text			"@CJ_BACK"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-115 56 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvotemapchange"; open "cjvotemap";}
+		}
+		itemDef
+		{
+			type       		1
+			text			"@CJ_CLOSE"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			80 56 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvotemapchange"; }
+		}
+
+		//TITLE
+		itemDef
+		{
+			name			"cj_votemapchange"
+			forecolor		1 1 1 0.8
+			text			"@CJ_VOTE_MAP_CHANGE"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			rect			-105 -60 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -55 101 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -54 101 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			type			1
+			text			"@CJ_NEXTMAP"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			60 0 38 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "mnext"; }
+		}
+		itemDef
+		{
+			type			1
+			text			"@CJ_PREVMAP"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-100 0 48 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_RIGHT
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "mprev"; }
+		}
+		itemDef
+		{
+			type			1
+			text			"@CJ_VOTENOW"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-15 0 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "change"; close "cjvotemapchange"; }
+		}
+		itemDef
+		{
+			forecolor		1 1 1 0.8
+			exp				text( dvarstring( ui_cj_map ) );
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textalign		ITEM_ALIGN_MIDDLE_CENTER
+			rect			0 -20 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+		}
+
+	}
+
+	menuDef
+	{
+		name			"cjvoteplayerkick"
+		rect			0 0 640 480
+		fullscreen		0
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_FILLED
+		//blurWorld		5.0
+		onEsc
+		{
+			play "mouse_click";
+			close self;
+		}
+
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			name			"vote_bg"
+			rect 			-130 -80 260 160 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			background		"cj_frame"
+			decoration
+		}
+		itemDef
+		{
+			type       		1
+			text			"@CJ_BACK"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-115 56 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvoteplayerkick"; open "cjvote";}
+		}
+		itemDef
+		{
+			type       		1
+			text			"@CJ_CLOSE"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			80 56 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "cjvoteplayerkick"; }
+		}
+		itemDef
+		{
+			type			1
+			text			"@CJ_NEXTPLAYER"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			60 0 38 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "next"; }
+		}
+		itemDef
+		{
+			type			1
+			text			"@CJ_PREVPLAYER"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-100 0 48 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_RIGHT
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "prev"; }
+		}
+		itemDef
+		{
+			type			1
+			text			"@CJ_VOTENOW"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-15 0 30 16 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "kick"; close "cjvoteplayerkick"; }
+		}
+		itemDef
+		{
+			forecolor		1 1 1 0.8
+			exp				text( dvarstring( ui_cj_player ) );
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textalign		ITEM_ALIGN_MIDDLE_CENTER
+			rect			0 -20 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+		}
+		//TITLE
+		itemDef
+		{
+			name			"cj_voteplayerkick"
+			forecolor		1 1 1 0.8
+			text			"@CJ_VOTE_PLAYER_KICK"
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		TEXTSIZE_SMALL
+			textaligny		8
+			rect			-105 -60 0 0 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			visible			1
+			decoration
+		}
+		//UNDERLINE TITLE
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -55 96 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-105 -54 96 0.5 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_CENTER
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.5
+			visible			1
+			decoration
+		}
+	}
+
+	menuDef
+	{
+		name			"voteprogressing"
+		rect			5 240 80 60	HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP
+		fullscreen		0
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_FILLED
+		onOpen
+		{
+			setDvar cl_bypassMouseInput "1";
+		}
+		onClose
+		{
+			setDvar cl_bypassMouseInput "0";
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_SHADER
+			rect			0 0 80 60
+			background		"cj_frame"
+			visible			1
+			decoration
+		}
+
+		//title
+		itemDef
+		{
+			forecolor		1 1 1 0.8
+			exp 			text (dvarstring(ui_cj_votetype));
+			textfont		UI_FONT_NORMAL
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			textscale		0.2
+			textaligny		8
+			rect			8 6 0 0
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			forecolor		0.8 0 0 0.8
+			exp 			text (dvarstring(ui_cj_player_vote));
+			textfont		UI_FONT_NORMAL
+			textscale		0.2
+			textaligny		8
+			rect			10 18 0 0
+			visible			1
+		}
+		itemDef
+		{
+			forecolor		0 1 0 0.8
+			exp				text (dvarstring(ui_cj_countdown));
+			textfont		UI_FONT_NORMAL
+			textscale		0.2
+			textaligny		8
+			rect			8 30 0 0
+			visible			1
+		}
+		itemDef
+		{
+			forecolor		1 1 1 0.8
+			text			"@CJ_VOTE_YES"
+			textfont		UI_FONT_NORMAL
+			textscale		0.2
+			textaligny		8
+			rect			8 42 0 0
+			visible			1
+		}
+		itemDef
+		{
+			forecolor		1 1 1 0.8
+			text			"@CJ_VOTE_NO"
+			textfont		UI_FONT_NORMAL
+			textscale		0.2
+			textaligny		8
+			rect			46 42 0 0 HORIZONTAL_ALIGN_LEFT VERTICAL_ALIGN_TOP
+			visible			1
+		}
+		execKey "1" { scriptMenuResponse "cjvoteyes"; play "mouse_click"; close self;}
+		execKey "2" { scriptMenuResponse "cjvoteno"; play "mouse_click"; close self;}
+		execKey "3" { scriptMenuResponse "cjcancel"; play "mouse_click"; close self;}
+		execKey "4" { scriptMenuResponse "cjforce"; play "mouse_click"; close self;}
+	}
+}

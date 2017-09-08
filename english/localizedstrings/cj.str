@@ -1,0 +1,117 @@
+// Note to translators:
+// If a sentence is the same in your language then please change it to "#same"
+//
+// eg:
+// LANG_ENGLISH  "HALT"
+// LANG_GERMAN   "#same"
+//
+// (This is so we can tell which strings have been signed-off as ok to be the same words for QA
+//  and because we do not store duplicate strings, which will then get exported again next time
+//  as being untranslated.)
+//
+VERSION             "1"
+CONFIG              "C:\trees\cod3\cod3\bin\StringEd.cfg"
+FILENOTES           ""
+
+//ENGLISH
+
+REFERENCE           OBJ
+LANG_ENGLISH        " "
+
+REFERENCE           OBJ_SCORE
+LANG_ENGLISH        " "
+
+REFERENCE           OBJ_HINT
+LANG_ENGLISH        " "
+
+REFERENCE			NULL
+LANG_ENGLISH		" "
+
+
+REFERENCE           NOPOS
+LANG_ENGLISH		"^1T^7here is no previous position to load."
+REFERENCE           NOPOS2
+LANG_ENGLISH		"^1T^7here is no previous secondary position to load."
+REFERENCE           NOPOS3
+LANG_ENGLISH		"^1T^7here is no previous tertiary position to load."
+REFERENCE           POSLOAD
+LANG_ENGLISH		"^2P^7revious position loaded."
+REFERENCE           POS2LOAD
+LANG_ENGLISH		"^2P^7revious secondary position loaded."
+REFERENCE           POS3LOAD
+LANG_ENGLISH		"^2P^7revious tertiary position loaded."
+REFERENCE           SAVED
+LANG_ENGLISH		"^2P^7osition saved."
+REFERENCE           SAVED2
+LANG_ENGLISH		"^2P^7osition 2 saved."
+REFERENCE           SAVED3
+LANG_ENGLISH		"^2P^7osition 3 saved."
+REFERENCE           PROMOTED
+LANG_ENGLISH		"^2You have been promoted!^7"
+REFERENCE           DEMOTED
+LANG_ENGLISH		"^1You have been demoted!^7"
+REFERENCE           NOSAVE
+LANG_ENGLISH		"^1S^7ave disabled on &&1."
+
+REFERENCE			CLOSE
+LANG_ENGLISH		"Close"
+REFERENCE			BACK
+LANG_ENGLISH		"Back"
+REFERENCE			PREVPLAYER
+LANG_ENGLISH		"Previous Player"
+REFERENCE			NEXTPLAYER
+LANG_ENGLISH		"Next Player"
+REFERENCE			PREVMAP
+LANG_ENGLISH		"Previous Map"
+REFERENCE			NEXTMAP
+LANG_ENGLISH		"Next Map"
+REFERENCE			VOTENOW
+LANG_ENGLISH		"Vote"
+REFERENCE			VOTE_YES
+LANG_ENGLISH		"^2Yes^7:"
+REFERENCE			VOTE_NO
+LANG_ENGLISH		"^1No^7:"
+REFERENCE			VOTE_YES_KEY
+LANG_ENGLISH		"&&1       [Key: [{openscriptmenu cjvote cjvoteyes}]]"
+REFERENCE			VOTE_NO_KEY
+LANG_ENGLISH		"&&1       [Key: [{openscriptmenu cjvote cjvoteno}]]"
+REFERENCE			TWEAK
+LANG_ENGLISH		"Graphics Tweaks"
+REFERENCE			FX
+LANG_ENGLISH		"Draw FX"
+REFERENCE			DECALS
+LANG_ENGLISH		"Draw Decals"
+REFERENCE			BRIGHT
+LANG_ENGLISH		"Fullbright"
+REFERENCE			DRAW
+LANG_ENGLISH		"Draw Distance"
+REFERENCE			TOGGLE
+LANG_ENGLISH		"Toggle"
+REFERENCE			RESET
+LANG_ENGLISH		"Reset"
+REFERENCE			1K
+LANG_ENGLISH		"1000"
+REFERENCE			2K
+LANG_ENGLISH		"2500"
+REFERENCE			FOG
+LANG_ENGLISH		"Fog"
+REFERENCE			THIRD
+LANG_ENGLISH		"3rd Person"
+REFERENCE			VOTE
+LANG_ENGLISH		"Vote Menu"
+REFERENCE			VOTE_MAP
+LANG_ENGLISH		"Vote: Extend/Rotate/Change"
+REFERENCE			VOTE_MAP_EXTEND
+LANG_ENGLISH		"Vote: Extend Time"
+REFERENCE			VOTE_MAP_ROTATE
+LANG_ENGLISH		"Vote: Rotate Map"
+REFERENCE			VOTE_MAP_CHANGE
+LANG_ENGLISH		"Vote: Change Map"
+REFERENCE			VOTE_PLAYER_KICK
+LANG_ENGLISH		"Vote: Kick Player"
+REFERENCE			VOTE_PLAYER_BAN
+LANG_ENGLISH		"Vote: Ban Player"
+
+REFERENCE			GT
+LANG_ENGLISH		"CoDJumper Mod"
+ENDMARKER

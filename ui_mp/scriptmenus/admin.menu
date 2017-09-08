@@ -1,0 +1,1390 @@
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_X_START			100
+#define CHOICE_Y_START			200
+
+#define CHOICE_GROUP			"admin"
+
+#define STYLE_PC	1
+
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+{
+	menuDef
+	{
+		name			"admin"
+		rect			0 0 640 480
+		fullscreen		0
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_EMPTY
+		//blurWorld		0.5
+		onOpen
+		{
+		}
+		onEsc
+		{
+			play "mouse_click";
+			close self;
+			scriptmenuresponse "adminmenuclose";
+		}
+
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			name			"graphic_bg"
+			rect 			-130 50 120 365 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			visible			1
+			forecolor		0 0 0.08 0.8
+			background		"cj_frame"
+			decoration
+		}
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			name			"graphic_bg"
+			rect 			-370 60 245 340 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			visible			1
+			forecolor		0 0 0.08 0.8
+			background		"cj_frame"
+			decoration
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 115 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Flash Player"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-330 115 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>^7Creates a ^5flashbang ^7effect on a ^5non admin ^7player."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "aflash"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-245 115 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Kill Player"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-245 115 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Kills ^7an ^5unpromoted ^7player."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "akill"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 135 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Force to Spec"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-330 135 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>^7Forces an ^5unpromoted ^7player to ^5spectator^7."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "aspec"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-245 135 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Toggle Freeze"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-245 135 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Freezes ^7a ^5non admin ^7player in place until unfrozen."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "afreeze"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 155 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Desaturate"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-330 155 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Desaturates ^7a ^5non admin ^7player's screen for 10 seconds."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "afade"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-245 155 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Kick Player"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-245 155 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>^7Kicks an ^5unpromoted ^7player with ^5temp ban^7."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse  "akick"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 175 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Ban Player"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-330 175 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Permanently ^7bans an ^5unpromoted ^7player."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse  "aban"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-245 175 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Take Weapon"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-245 175 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Removes ^7a player's ^5current weapon^7."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse  "atakeweapon"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 200 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Promote Player"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-330 200 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Promotes ^7a player to the ^5VIP ^7rank."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse  "apromote"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-245 200 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Demote Player"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-245 200 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>^7Removes special ^5status ^7from a player and ^5kills ^7them."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse  "ademote"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 220 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Teleport to Player"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-330 220 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Teleport ^7to a ^5player's ^7current location."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse  "teletoplayer"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-245 220 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Teleport Player to You"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-245 220 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Teleport ^7 a player ^5to your ^7current location."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse  "playertele"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 245 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			text			"Give Weapon"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-330 245 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>^7Choose from a list of ^5weapons ^7to give a player."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse  "opengivemenu"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-245 245 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			type			1
+			rect		-245 245 78 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Give Ammo"
+			style			WINDOW_STYLE_FILLED
+			textfont	CHOICE_TEXTFONT
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_CENTER
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			forecolor		COLOR_FOCUSED
+			visible 	1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>Refill ^7a player's currently equipped weapon to ^5max ammo^7."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_ammo"; }
+		}
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		itemDef
+		{
+			rect		-250 100 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	( dvarstring( ui_cj_client ) );
+			textfont	UI_FONT_NORMAL
+			textscale	TEXTSIZE_SMALL
+			textalign	ITEM_ALIGN_CENTER
+			textstyle	ITEM_TEXTSTYLE_SHADOWEDMORE
+			visible 	1
+			decoration
+		}
+
+		itemDef
+		{
+			rect		-250 110 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	( dvarstring( ui_cj_client_guid ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_CENTER
+			textstyle	ITEM_TEXTSTYLE_SHADOWEDMORE
+			visible 	1
+			decoration
+		}
+
+		itemDef
+		{
+			rect		-190 362 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	( "ID Number: "+dvarstring( ui_cj_client_id ) );
+			textfont	CHOICE_TEXTFONT
+			textscale	0.3
+			textalign	ITEM_ALIGN_MIDDLE_CENTER
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	1
+			decoration
+		}
+
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			-349 333 185 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp				material( "gradient_fadein" );
+			forecolor		0.9 0.9 1 0.2
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			rect		-330 340 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	( dvarstring( ui_cj_hintstring ) );
+			textfont	CHOICE_TEXTFONT
+			textscale	0.17
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	1
+			decoration
+		}
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 270 163 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			rect		-330 270 163 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	dvarstring(pm);
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_CENTER
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>^7Enter ^5/rcon set pm ''your message'' ^7then press to send"; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "playermsg"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 290 163 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			rect		-330 290 163 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	dvarint(speed);
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_CENTER
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>^7Enter ^5/rcon set speed <your speed>^7, then press to set it"; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "setspeed"; }
+		}
+
+		itemDef
+		{
+			style 			WINDOW_STYLE_FILLED
+			rect			-330 310 163 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			forecolor		1 1 1 1
+			backcolor		1 1 1 0.2
+			border			1
+			bordercolor		1 1 1 0.6
+			visible			1
+			decoration
+		}
+		itemDef
+		{
+			rect		-330 310 163 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	dvarstring(rename);
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_CENTER
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	1
+			mouseEnter 		{ play "mouse_over"; setdvar ui_cj_hintstring "^5>>^7Enter ^5/rcon set rename ''new name''^7, then press to set."; }
+			mouseExit			{ setdvar ui_cj_hintstring "^5>>^7"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "setname"; }
+		}
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		itemDef
+		{
+			name			"cj_close"
+			type       		1
+			text			"@CJ_CLOSE"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-340 355 25 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			when(dvarstring(ui_cj_give_menu)==0)
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; close "admin"; scriptmenuresponse "adminmenuclose"; }
+		}
+
+		itemDef
+		{
+			name			"cj_back"
+			type       		1
+			text			"Back"
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-340 355 25 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER
+			textfont		CHOICE_TEXTFONT
+			textscale		0.3
+			forecolor		COLOR_FOCUSED
+			visible			when(dvarstring(ui_cj_give_menu)==1)
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "closegivemenu"; }
+		}
+
+		///////////////
+		//PLAYER LIST//
+		///////////////
+		itemDef
+		{
+			rect		-110 70 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 0:^7 "+dvarstring(ui_cj_player_list_0 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0) && (dvarstring(ui_cj_player_count)>=1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player0"; }
+		}
+		itemDef
+		{
+			rect		-110 80 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 1:^7 "+dvarstring(ui_cj_player_list_1 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=2));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player1"; }
+		}
+		itemDef
+		{
+			rect		-110 90 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 2:^7 "+dvarstring(ui_cj_player_list_2 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=3));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player2"; }
+		}
+		itemDef
+		{
+			rect		-110 100 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 3:^7 "+dvarstring(ui_cj_player_list_3 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=4));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player3"; }
+		}
+		itemDef
+		{
+			rect		-110 110 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 4:^7 "+dvarstring(ui_cj_player_list_4 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=5));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player4"; }
+		}
+		itemDef
+		{
+			rect		-110 120 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 5:^7 "+dvarstring(ui_cj_player_list_5 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=6));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player5"; }
+		}
+		itemDef
+		{
+			rect		-110 130 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 6:^7 "+dvarstring(ui_cj_player_list_6 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=7));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player6"; }
+		}
+		itemDef
+		{
+			rect		-110 140 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 7:^7 "+dvarstring(ui_cj_player_list_7 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=8));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player7"; }
+		}
+		itemDef
+		{
+			rect		-110 150 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 8:^7 "+dvarstring(ui_cj_player_list_8 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=9));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player8"; }
+		}
+		itemDef
+		{
+			rect		-110 160 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 9:^7 "+dvarstring(ui_cj_player_list_9 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=10));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player9"; }
+		}
+		itemDef
+		{
+			rect		-110 170 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 10:^7 "+dvarstring(ui_cj_player_list_10 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=11));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player10"; }
+		}
+		itemDef
+		{
+			rect		-110 180 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 11:^7 "+dvarstring(ui_cj_player_list_11 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=12));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player11"; }
+		}
+		itemDef
+		{
+			rect		-110 190 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 12:^7 "+dvarstring(ui_cj_player_list_12 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=13));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player12"; }
+		}
+		itemDef
+		{
+			rect		-110 200 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 13:^7 "+dvarstring(ui_cj_player_list_13 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=14));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player13"; }
+		}
+		itemDef
+		{
+			rect		-110 210 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 14:^7 "+dvarstring(ui_cj_player_list_14 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=15));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player14"; }
+		}
+		itemDef
+		{
+			rect		-110 220 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 15:^7 "+dvarstring(ui_cj_player_list_15 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=16));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player15"; }
+		}
+		itemDef
+		{
+			rect		-110 230 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 16:^7 "+dvarstring(ui_cj_player_list_16 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=17));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player16"; }
+		}
+		itemDef
+		{
+			rect		-110 240 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 17:^7 "+dvarstring(ui_cj_player_list_17 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=18));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player17"; }
+		}
+		itemDef
+		{
+			rect		-110 250 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 18:^7 "+dvarstring(ui_cj_player_list_18 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=19));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player18"; }
+		}
+		itemDef
+		{
+			rect		-110 260 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 19:^7 "+dvarstring(ui_cj_player_list_19 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=20));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player19"; }
+		}
+		itemDef
+		{
+			rect		-110 270 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 20:^7 "+dvarstring(ui_cj_player_list_20 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=21));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player20"; }
+		}
+		itemDef
+		{
+			rect		-110 280 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 21:^7 "+dvarstring(ui_cj_player_list_21 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=22));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player21"; }
+		}
+		itemDef
+		{
+			rect		-110 290 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 22:^7 "+dvarstring(ui_cj_player_list_22 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=23));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player22"; }
+		}
+		itemDef
+		{
+			rect		-110 300 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 23:^7 "+dvarstring(ui_cj_player_list_23 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=24));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player23"; }
+		}
+		itemDef
+		{
+			rect		-110 310 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 24:^7 "+dvarstring(ui_cj_player_list_24 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=25));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player24"; }
+		}
+		itemDef
+		{
+			rect		-110 320 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 25:^7 "+dvarstring(ui_cj_player_list_25 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=26));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player25"; }
+		}
+		itemDef
+		{
+			rect		-110 330 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 26:^7 "+dvarstring(ui_cj_player_list_26 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=27));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player26"; }
+		}
+		itemDef
+		{
+			rect		-110 340 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^8Client 27:^7 "+dvarstring(ui_cj_player_list_27 ) );
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==0)&& (dvarstring(ui_cj_player_count)>=28));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "player27"; }
+		}
+
+		///////////////
+		//WEAPON LIST//
+		///////////////
+		itemDef
+		{
+			type			1
+			text			"^8Choose a ^5weapon^8."
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-110 75 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			when((dvarstring(ui_cj_give_menu)==1));
+			decoration
+		}
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			-110 70 80 12 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp				material( "gradient_fadein" );
+			forecolor		0.9 0.9 1 0.07
+			visible			when((dvarstring(ui_cj_give_menu)==1));
+			decoration
+		}
+
+		itemDef
+		{
+			rect		-110 77 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"AK47"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_ak47";}
+		}
+		itemDef
+		{
+			rect		-110 87 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Bomb"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_rpd"; }
+		}
+		itemDef
+		{
+			rect		-110 97 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Brick Blaster"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_brick_blaster"; }
+		}
+		itemDef
+		{
+			rect		-110 107 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Claymore"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_claymore"; }
+		}
+		itemDef
+		{
+			rect		-110 117 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Default Weapon"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_defaultweapon"; }
+		}
+		itemDef
+		{
+			rect		-110 127 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Desert Eagle"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_deserteagle"; }
+		}
+		itemDef
+		{
+			rect		-110 137 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Desert Eagle (Gold)"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_deserteaglegold"; }
+		}
+		itemDef
+		{
+			rect		-110 147 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Flash Grenade"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_flash_grenade"; }
+		}
+		itemDef
+		{
+			rect		-110 157 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Frag Grenade"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_frag_grenade"; }
+		}
+		itemDef
+		{
+			rect		-110 167 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"G36C"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_g36c"; }
+		}
+		itemDef
+		{
+			rect		-110 177 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"M1014"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_m1014"; }
+		}
+		itemDef
+		{
+			rect		-110 187 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"M16"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_m16"; }
+		}
+		itemDef
+		{
+			rect		-110 197 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"M40A3"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_m40a3"; }
+		}
+		itemDef
+		{
+			rect		-110 207 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"M4"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_m4"; }
+		}
+		itemDef
+		{
+			rect		-110 217 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"M60E4"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_m60e4"; }
+		}
+		itemDef
+		{
+			rect		-110 227 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"MP44"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_mp44"; }
+		}
+		itemDef
+		{
+			rect		-110 237 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"MP5"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_mp5"; }
+		}
+		itemDef
+		{
+			rect		-110 247 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"P90"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_p90"; }
+		}
+		itemDef
+		{
+			rect		-110 257 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Remington 700"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_remington700"; }
+		}
+		itemDef
+		{
+			rect		-110 267 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Skorpion"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_skorpion"; }
+		}
+		itemDef
+		{
+			rect		-110 277 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Uzi"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_uzi"; }
+		}
+		itemDef
+		{
+			rect		-110 287 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Winchester 1200"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_winchester1200"; }
+		}
+
+		itemDef
+		{
+			type			1
+			text			"^8Pick an ^5attachment^8."
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-110 307 1 1 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			textAlign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		CHOICE_TEXTFONT
+			textscale		0.2
+			forecolor		COLOR_FOCUSED
+			visible			when((dvarstring(ui_cj_give_menu)==1));
+			decoration
+		}
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			-110 302 80 12 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp				material( "gradient_fadein" );
+			forecolor		0.9 0.9 1 0.07
+			visible			when((dvarstring(ui_cj_give_menu)==1));
+			decoration
+		}
+
+		itemDef
+		{
+			rect		-110 310 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"None"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "attach_none"; }
+		}
+		itemDef
+		{
+			rect		-110 320 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Silencer"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "attach_silencer"; }
+		}
+		itemDef
+		{
+			rect		-110 330 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"ACOG Scope"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "attach_acog"; }
+		}
+		itemDef
+		{
+			rect		-110 340 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Reflex Sight"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "attach_reflex"; }
+		}
+		itemDef
+		{
+			rect		-110 350 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"Grip"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "attach_grip"; }
+		}
+
+		itemDef
+		{
+			rect		-110 372 160 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^1Red ^8choices don't exist.");
+			textfont	UI_FONT_NORMAL
+			textscale	0.16
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			decoration
+		}
+		itemDef
+		{
+			rect		-110 379 160 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	("^2Green ^8choices are valid.");
+			textfont	UI_FONT_NORMAL
+			textscale	0.16
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			decoration
+		}
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			-110 363 80 28 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp				material( "gradient_fadein" );
+			forecolor		0.9 0.9 1 0.07
+			visible			when((dvarstring(ui_cj_give_menu)==1));
+			decoration
+		}
+		itemDef
+		{
+			rect		-93 362 160 14 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			exp text	(dvarstring(ui_cj_give_valid_check)+dvarstring(ui_cj_give_weapon)+dvarstring(ui_cj_give_attachment));
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			decoration
+		}
+		itemDef
+		{
+			rect		-110 361 140 16 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			text		"^5Give^7:"
+			textfont	UI_FONT_NORMAL
+			textscale	0.2
+			textalign	ITEM_ALIGN_MIDDLE_LEFT
+			textstyle	ITEM_TEXTSTYLE_SHADOWED
+			visible 	when((dvarstring(ui_cj_give_menu)==1));
+			mouseEnter 		{ play "mouse_over"; }
+			action 			{ play "mouse_click"; scriptmenuresponse "give_weapon"; }
+		}
+	}
+}
